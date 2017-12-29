@@ -41,7 +41,6 @@ header {
     margin: -1vh 0;
     height: 5vh;
     color: #2870b8;
-    transition: color 0.2s linear, background-color 0.2s linear;
 }
 
 #one {
@@ -88,8 +87,7 @@ footer {
 
 @media only screen and (min-width: 1081px) {
     .brand:hover {
-        color: #fff;
-        background-color: #2870b8;
+        color: #18436e;
     }
     #brand-title-small {
         display: none;

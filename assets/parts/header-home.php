@@ -1,7 +1,6 @@
 <header>
     <div class="cover">
-        <a href="/" class="brand" id="brand-title"><i class="fa fa-angle-double-left"></i> Dashboard</a>
-        <a href="/" class="brand" id="brand-title-small"><i class="fa fa-angle-double-left"></i></a>
+        <a href="/" class="brand" id="brand-title">Dashboard</a>
 
         <div class="logo-wrapper">
             <a href="http://www.upesacm.org" target="_blank"><img class="logo" id="one" src="/assets/images/UPES ACM LOGO.png" /></a>

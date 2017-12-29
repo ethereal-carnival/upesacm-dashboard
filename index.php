@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <?php include '/assets/parts/header.php'; ?>
+        <?php include '/assets/parts/header-home.php'; ?>
         <?php include '/assets/parts/footer.php'; ?>
     </body>
 
