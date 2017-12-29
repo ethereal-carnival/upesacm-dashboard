@@ -1,0 +1,71 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #2870b8;
+}
+
+header {
+    height: 7vh;
+    border-bottom: 1px solid #18436e;
+    padding: 1vh 10vw;
+    background-color: white;
+    position: fixed;
+    width: 100vw;
+    box-shadow: 0px 0px 8px 2px #18436e;
+}
+
+@media only screen and (max-width: 1080px) {
+    header {
+        text-align: center;
+        padding: 1vh 0;
+    }
+}
+
+.logo {
+    height: 7vh;
+    padding: 0 0.5vw;
+    margin: 0;
+    float: right;
+}
+
+.cover {
+    width: 80vw;
+}
+
+
+.brand {
+    float: left;
+    text-decoration: none;
+    font-size: 4vh;
+    padding: 2vh 1vw;
+    margin: -1vh 0;
+    height: 5vh;
+    color: #2870b8;
+    transition: color 0.2s linear, background-color 0.2s linear;
+}
+.brand:hover {
+    color: #fff;
+    background-color: #2870b8;
+}
+
+#one {
+    border-right: 1px solid #18436e;
+    padding-right: 1vw;
+}
+
+footer {
+    display: none;
+    text-align: center;
+    background-color: #102c49;
+    width: 100vw;
+    height: 5vh;
+    top: auto;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
