@@ -1,0 +1,50 @@
+body{
+    background-image:url("Engi.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container{
+    
+    margin: 100px auto;
+    width: 400px;
+    border:1px dotted black;
+    background-color:rgba(29, 39, 48,0.8);
+    border-radius:5px;
+}
+
+div{
+    text-align:center;
+    }
+
+.logo{
+    padding-left: 60px;
+    padding-right: 60px;
+    margin:0px;
+    margin-bottom: 15px;
+    }
+input[type=text],input[type=password]{
+    width:190px;
+    height:20px;
+    padding:5px;
+    
+    margin-bottom: 2px;
+}
+.sub{
+    padding-top: 4px;
+    padding-bottom: 20px;
+    }
+
+input[type=submit]{
+    width: 100px;
+    height: 25px;
+    padding: 3px;
+    }
+@media only screen and (max-width: 640px)
+{
+    .container{
+        width: 75%;
+    }
+    .logo img{
+        width: 70%;
+    }
+}
