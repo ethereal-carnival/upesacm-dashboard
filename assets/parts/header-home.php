@@ -1,4 +1,4 @@
-<header>
+<header id="header">
     <div class="cover">
         <a href="/" class="brand" id="brand-title">Dashboard</a>
 
@@ -8,3 +8,4 @@
         </div>
     </div>
 </header>
+<div class="fill"></div>

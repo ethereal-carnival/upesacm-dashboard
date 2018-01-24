@@ -7,6 +7,7 @@
         <title>Dashboard - UPES ACM Student Chapter</title>
 
         <?php include '../assets/parts/includes.php'; ?>
+        <link href="/assets/css/register.css" rel="stylesheet" />
 
         <meta name="theme-color" content="#2870b8" />
     </head>
@@ -41,7 +42,7 @@
                     </select>
                     <input class="inp-txt" type="number" name="sap" placeholder="SAP ID*" title="Please enter your name" required />
                     <input class="inp-txt" type="email" name="email" placeholder="Email ID*" title="Please enter your Email-ID" required />
-                        <select name="gender" class="inp-txt" title="Please select your gender" required>
+                    <select name="gender" class="inp-txt" title="Please select your gender" required>
                         <option value="">Gender*</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>

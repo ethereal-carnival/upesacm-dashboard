@@ -1,110 +1,41 @@
-#outer {
-    padding-top: 9vh;
+body {
+    background-image: url(/assets/images/wallpaper.jpg);
 }
 
-#slider {
-    margin-top: 5vh;
-    height: 31vh;
-    background-color: white;
-    padding-top: 1vh;
-    overflow-x: scroll;
-    white-space: nowrap;
+#overlay {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.8);
 }
 
-*::-webkit-scrollbar {
-    display: none;
+#home {
+    height: 91vh;
 }
 
-.image {
-    cursor: pointer;
-    display: inline;
-    height: 30vh;
-    margin: 0 5px;
-}
-
-img {
-    height: 30vh;
-}
-
-#form {
-    margin: 5vh 10vw;
-    padding: 5vh 5vw;
-    border-radius: 10px;
-    background-color: white;
-    text-align: center;
-    display: inline-block;
-}
-
-.inp-txt {
-    margin: 2vh 2vw;
-    border: none;
-    border-bottom: 1px solid black;
-    height: 5vh;
-    font-size: 2.5vh;
-    padding: 0.5vh 1vw;
-    background-color: white;
-}
-
-.inp-txt:focus {
-    outline: none;
-    border-bottom-color: #2870b8;
-    color: #2870b8;
-}
-
-#center {
-    align-content: center;
-}
-
-.button {
-    cursor: pointer;
-    margin: 4vh 2vw 2vh 2vw;
-    padding: 1vh 1vw;
-    font-size: 2.5vh;
-    border-radius: 20px;
-    background: none;
-    border: none;
-    border: 1px solid #2870b8;
-    color: #2870b8;
-    transition: all 0.12s linear;
-}
-
-.button:hover {
+#semi-foot {
+    height: 40vh;
     background-color: #2870b8;
-    color: white;
-}
-
-.button:focus {
-    outline: none;
-    background-color: #2870b8;
-    color: white;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-@media only screen and (min-width: 1081px) {
-    .inp-txt {
-        width: 30vw;
-    }
-    .button {
-        width: 10vw;
-    }
+    box-shadow: 0px 0px 8px 2px #14385c;
 }
 
 @media only screen and (max-width: 1080px) {
-    #form {
-        margin-left: 2vw; margin-right: 2vw;
+}
+
+@media only screen and (min-width: 1081px) {
+    #header {
+        background-color: rgba(255, 255, 255, 0.8);
+        transition: all 0.2s linear;
+        padding-top: 2vh;
+        height: 8vh;
+        //box-shadow: 0px 0px 8px 2px #fff;
     }
-    .inp-txt {
-        width: 80vw;
-        font-size: 48px;
-        height: 96px;
-    }
-    .button {
-        width: 60vw;
-        font-size: 48px;
-    }
+}
+
+footer {
+    box-shadow: 0px 0px 8px 2px #14385c;
 }

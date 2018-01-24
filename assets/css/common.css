@@ -4,6 +4,10 @@
     font-family: sans-serif;
 }
 
+*::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     background-color: #2870b8;
 }
@@ -48,17 +52,22 @@ header {
     padding-right: 1vw;
 }
 
+.fill {
+    height: 9vh;
+}
+
 footer {
-    display: none;
+    //display: none;
     text-align: center;
     background-color: #102c49;
+    background-color: #fff;
     width: 100vw;
-    height: 5vh;
-    top: auto;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    height: 9vh;
+    //top: auto;
+    //position: absolute;
+    //right: 0;
+    //bottom: 0;
+    //left: 0;
 }
 
 @media only screen and (max-width: 1080px) {
