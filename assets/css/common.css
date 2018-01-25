@@ -8,6 +8,14 @@
     display: none;
 }
 
+html,
+div,
+section,
+aside,
+article {
+    overflow: -moz-scrollbars-none;
+}
+
 body {
     background-color: #2870b8;
 }
@@ -31,11 +39,11 @@ header {
     box-shadow: 0px 0px 8px 2px #18436e;
 }
 
-.event_detail>a {
+.event_detail > a {
     color: green;
 }
 
-.event_detail>a:visited {
+.event_detail > a:visited {
     color: green;
 }
 
@@ -93,7 +101,7 @@ footer {
     font-family: serif;
 }
 
-.social{
+.social {
     background-color: #2870b8;
     color: #fff;
     text-align: center;

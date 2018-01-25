@@ -37,10 +37,11 @@
 
             .event-list {
                 background-color: #fff;
+                background-color: #f0f7e9;
                 border-radius: 15px;
                 margin: 2vh 0.5vw 0 1vw;
                 height: 8vh;
-                font-size: 3vh;
+                font-size: 2.75vh;
                 line-height: 2.5;
                 text-align: center;
             }
@@ -51,9 +52,12 @@
             }
 
             .checked {
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-                margin-right: 0;
+                background-color: #2870b8;
+                color: #fff;
+            }
+
+            .checked>a {
+                color: #fff;
             }
 
             button {
@@ -119,7 +123,7 @@
                 line-height: 4vh;
             }
 
-            .name{
+            .name {
                 float: left;
                 line-height: 4vh;
             }
@@ -150,8 +154,8 @@
 
     <body style="">
         <?php include '../assets/parts/header.php'; ?>
-        <section style="float: left; margin-top: 9vh; height: 82vh; width: 25vw; background-color: #2870b8; overflow-y: scroll;">
-            <article class="event-list"><a href="?name=International Coding League">Internaional Coding League</a></article>
+        <section style="float: left; margin-top: 9vh; height: 82vh; width: 20vw; background-color: #2870b8; background-color: rgba(0,0,0,0.8); overflow-y: scroll;">
+            <article class="event-list"><a href="?name=International Coding League">International Coding League</a></article>
             <article class="event-list"><a href="?name=Frame of Reference">Frame of Reference</a></article>
             <article class="event-list checked"><a href="?name=Glitch">Glitch</a></article>
             <article class="event-list"><a href="?name=Engage">Engage</a></article>
@@ -163,7 +167,7 @@
             <article class="event-list" style="margin-bottom: 2vh;"><a href="?name=Augmented Reality Workshop">Augmented Reality Workshop</a></article>
         </section>
         <section style="float: left; margin-top: 9vh">
-            <div style="height: 78vh; width: 53vw; background-color: rgba(0,0,0,0.8); padding: 2vh 1vw; overflow-y: scroll;">
+            <div style="height: 78vh; width: 58vw; background-color: rgba(0,0,0,0.8); padding: 2vh 1vw; overflow-y: scroll;">
                 <center>
                     <div id="poster" style="text-align: center; display: inline;"><img src="/assets/images/event_3.jpg" style="height: 30vh;" /></div>
                     <div class="base" style="display: inline-block; text-align: left; overflow-y: scroll;">
@@ -174,11 +178,11 @@
                         <div class="in-text" id="Time">Time: 10:200 - 12:00</div>
                         <div class="in-text" id="venue">Venue: Old Amphitheatre</div>
                         <div class="in-text" id="participants">Particpants: 48</div>
-                        <button id="venue"><i class="fa fa-circle-o"></i>&nbsp;&nbsp;Participate</button>
+                        <button id="status" style="width: 10vw; height: 4vh;"><i class="fa fa-circle-o"></i>&nbsp;&nbsp;Participate</button>
                     </div>
                 </center>
                 <div class="in-text" id="description">
-                    <h1>Description</h1><br />Lick sellotape mew damn that dog but eat all the power cords. Drool thinking longingly about tuna brine and kitten is playing with dead mouse for stare at the wall, play with food and get confused by dust prance along on top of the garden fence, annoy the neighbor's dog and make it bark meowzer. If it smells like fish eat as much as you wish licks paws and howl on top of tall thing small kitty warm kitty little balls of fur or cat mojo yet spill litter box, scratch at owner, destroy all furniture, especially couch and sniff other cat's butt and hang jaw half open thereafter. Mark territory open the door, let me out, let me out, let me-out, let me-aow, let meaow, meaow!. And sometimes switches in french and say "miaou" just because well why not. Climb a tree, wait for a fireman jump to fireman then scratch his face behind the couch, a nice warm laptop for me to sit on, be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day i shredded your linens for you and with tail in the air lies down . Meow meow be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day, sit in box.
+                    <h1>Description:</h1><br />Lick sellotape mew damn that dog but eat all the power cords. Drool thinking longingly about tuna brine and kitten is playing with dead mouse for stare at the wall, play with food and get confused by dust prance along on top of the garden fence, annoy the neighbor's dog and make it bark meowzer. If it smells like fish eat as much as you wish licks paws and howl on top of tall thing small kitty warm kitty little balls of fur or cat mojo yet spill litter box, scratch at owner, destroy all furniture, especially couch and sniff other cat's butt and hang jaw half open thereafter. Mark territory open the door, let me out, let me out, let me-out, let me-aow, let meaow, meaow!. And sometimes switches in french and say "miaou" just because well why not. Climb a tree, wait for a fireman jump to fireman then scratch his face behind the couch, a nice warm laptop for me to sit on, be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day i shredded your linens for you and with tail in the air lies down . Meow meow be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day, sit in box.
                 </div>
                 <br />
                 <div class="in-text" id="description">
