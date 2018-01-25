@@ -12,6 +12,8 @@
         <link href="/assets/css/home.css" rel="stylesheet" />
 
         <script type="text/javascript" src="../assets/js/home.js"></script>
+
+        <meta name="theme-color" content="#2870b8" />
     </head>
 
     <body>

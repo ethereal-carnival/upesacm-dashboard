@@ -65,8 +65,9 @@ body {
 }
 
 #semi-foot {
-    height: 40vh;
-    background-color: #2870b8;
+    height: 46vh;
+    //background-color: #2870b8;
+    background: linear-gradient(to bottom, white, #2870b8);
     box-shadow: 0px 0px 8px 2px #14385c;
     overflow-x: scroll;
 }
@@ -84,8 +85,12 @@ body {
     #slider {}
 
     #login-form {
-        margin: 20vh 1vw;
-        height: 29vh;
+        margin: 5vh 1vw;
+        height: 40vh;
+        padding-top: 15vh;
+    }
+    .input-txt {
+        margin-bottom: 3vh;
     }
     .button {
         float: none;
@@ -93,6 +98,8 @@ body {
         background-color: #2870b8;
         color: #fff;
         display: block;
+        line-height: 4vh;
+        margin-top: 5vh;
     }
     #register {
         background-color: green;

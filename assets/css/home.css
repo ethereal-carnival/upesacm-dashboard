@@ -150,11 +150,6 @@
     transition: all 0.2s linear;
 }
 
-.button:hover {
-    background-color: green;
-    color: white;
-}
-
 .checked {
     background-color: #70b828;
     color: white;
@@ -222,7 +217,7 @@ li {
     height: 8vh;
 }
 
-.packet>img {
+.packet > img {
     float: left;
     height: 8vh;
 }
@@ -233,6 +228,7 @@ li {
     margin-left: 0.5vw;
 
 }
+
 .discover_name {
     font-size: 2vh;
     margin-bottom: 1vh;
@@ -265,3 +261,10 @@ li {
     }
 
 }
+
+@media only screen and (min-width: 1081px) {
+
+    .button:hover {
+        background-color: green;
+        color: white;
+    }

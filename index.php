@@ -37,8 +37,18 @@
             </section>
             <section id="semi-foot">
                 <center>
-                    <a href="http://prodigy.upesacm.org" target="_blank" id="carousel"><img style="height: 35vh; margin: 2vh;" src="/assets/images/logo_prodigy.gif" />
-                    <img style="height: 35vh; margin: 2vh;" src="/assets/images/logo_prodigy.jpg" /></a>
+                    <div id="carousel">
+                        <img style="height: 40vh; margin: 3vh 1vw;" src="/assets/images/event_1.jpg" />
+                        <img style="height: 40vh; margin: 3vh 1vw;" src="/assets/images/event_2.jpg" />
+                        <img style="height: 40vh; margin: 3vh 1vw;" src="/assets/images/event_3.jpg" />
+                        <img style="height: 40vh; margin: 3vh 1vw;" src="/assets/images/event_4.jpg" />
+                        <img style="height: 40vh; margin: 3vh 1vw;" src="/assets/images/event_5.jpg" />
+                        <img style="height: 40vh; margin: 3vh 1vw;" src="/assets/images/event_6.jpg" />
+                        <img style="height: 40vh; margin: 3vh 1vw;" src="/assets/images/event_7.jpg" />
+                        <img style="height: 40vh; margin: 3vh 1vw;" src="/assets/images/event_8.jpg" />
+                        <img style="height: 40vh; margin: 3vh 1vw;" src="/assets/images/event_9.jpg" />
+                        <img style="height: 40vh; margin: 3vh 1vw;" src="/assets/images/event_10.jpg" />
+                    </div>
                 </center>
             </section>
             <?php include '/assets/parts/footer.php'; ?>
