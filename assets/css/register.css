@@ -101,7 +101,9 @@ input::-webkit-inner-spin-button {
         height: 96px;
     }
     .button {
-        width: 60vw;
+        width: 80vw;
         font-size: 48px;
+        background-color: #2870b8;
+        color: #fff;
     }
 }

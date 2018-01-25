@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if(isset($_SESSION["username"])) {
+        echo "<html><head><script type='text/javascript'>window.alert('You are already registered. Please log out to register another user'); window.location.href='/';</script></head></html>";
+        die();
+    }
 ?>
     <html lang="en">
 
@@ -57,8 +61,7 @@
                 </form>
             </article>
         </section>
-        <footer>
-        </footer>
+        <?php include '../assets/parts/footer.php'; ?>
     </body>
 
     </html>
