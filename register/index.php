@@ -8,7 +8,7 @@
     <html lang="en">
 
     <head>
-        <title>Dashboard - UPES ACM Student Chapter</title>
+        <title>Register - Dashboard, UPES ACM Student Chapter</title>
 
         <?php include '../assets/parts/includes.php'; ?>
         <link href="/assets/css/register.css" rel="stylesheet" />

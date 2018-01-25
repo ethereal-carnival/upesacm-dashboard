@@ -8,6 +8,7 @@
     <html lang="en">
 
     <head>
+        <title>Home - Dashboard, UPES ACM Student Chapter</title>
         <?php include '../assets/parts/includes.php'; ?>
         <link href="/assets/css/home.css" rel="stylesheet" />
 
