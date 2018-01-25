@@ -12,6 +12,15 @@ body {
     background-color: #2870b8;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
 header {
     height: 7vh;
     border-bottom: 1px solid #18436e;
@@ -20,6 +29,14 @@ header {
     position: fixed;
     width: 100vw;
     box-shadow: 0px 0px 8px 2px #18436e;
+}
+
+.event_detail>a {
+    color: green;
+}
+
+.event_detail>a:visited {
+    color: green;
 }
 
 .logo {
@@ -47,6 +64,10 @@ header {
     color: #2870b8;
 }
 
+a.brand {
+    color: #2870b8;
+}
+
 #one {
     border-right: 1px solid #18436e;
     padding-right: 1vw;
@@ -63,11 +84,11 @@ footer {
     height: 3vh;
     padding: 3vh 0;
     font-size: 2vh;
-    //top: auto;
-    //position: absolute;
-    //right: 0;
-    //bottom: 0;
-    //left: 0;
+    top: auto;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
     box-shadow: 0px 0px 8px 2px #14385c;
     font-family: serif;
 }

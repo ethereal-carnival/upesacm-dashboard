@@ -53,6 +53,10 @@
             </section>
             <?php include '/assets/parts/footer.php'; ?>
         </div>
+
+        <script type="text/javascript">
+            document.getElementById("temp_logout").style.display = "none";
+        </script>
     </body>
 
     </html>

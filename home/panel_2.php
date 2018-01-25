@@ -7,10 +7,10 @@
         <div class="post_caption">So excited to participate!</div>
         <div class="post_event">
             <div class="poster">
-                <img src="/assets/images/event_1.jpg" style="height: 40vh;" />
+                <a href="/event/?name=International Coding League"><img src="/assets/images/event_1.jpg" style="height: 40vh;" /></a>
             </div>
             <div class="desc">
-                <div class="event_name event_detail">International Coding League</div>
+                <div class="event_name event_detail"><a href="/event/?name=International Coding League">International Coding League</a></div>
                 <div class="event_date event_detail">Date: <strong>1st February, 2018</strong></div>
                 <div class="event_venue event_detail">Venue: <strong>10006</strong></div>
                 <div class="event_venue event_detail">Timings: <strong>1000-1600 hrs</strong></div>

@@ -63,7 +63,7 @@
 
 #all-events {
     margin-top: 2vh;
-    height: 43vh;
+    height: 44vh;
     background-color: #fff;
     border-radius: 5px;
     padding: 0vh 0.5vw 1vh 0.5vw;
@@ -162,10 +162,6 @@
     margin-top: 0.5vh;
     border-color: #2870b8;
     color: #2870b8;
-}
-
-.follow-status:hover {
-    background-color: #2870b8;
 }
 
 .follow-status-checked {
@@ -268,3 +264,9 @@ li {
         background-color: green;
         color: white;
     }
+
+    .follow-status:hover {
+        background-color: #2870b8;
+    }
+
+}
