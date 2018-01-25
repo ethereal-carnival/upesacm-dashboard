@@ -3,7 +3,6 @@
 }
 
 .panel {
-    background-color: #fff;
     border-radius: 5px;
     height: 88vh;
     margin: 0 0.5vw;
@@ -12,12 +11,14 @@
 
 #panel_1 {
     margin-left: 0;
-    width: 19vw;
+    width: 16vw;
     display: inline-block;
+    background: none;
+    overflow-y: scroll;
 }
 
 #panel_2 {
-    width: 39vw;
+    width: 42vw;
     display: inline-block;
     background: none;
     overflow-y: scroll;
@@ -31,6 +32,49 @@
     overflow-y: scroll;
 }
 
+#photograph {
+    padding: 2vh 1vw;
+    background-color: #fff;
+    border-radius: 5px;
+    height: 37vh;
+}
+
+#dp {
+    border: none;
+    cursor: pointer;
+    background-image: url(/assets/images/dp.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 14vw;
+    width: 14vw;
+}
+
+#change_dp {
+    background-color: #333;
+    opacity: 0;
+    height: 8.5vw;
+    width: 14vw;
+    margin: 0;
+    padding: 5.5vw 0 0 0;
+    font-size: 2vh;
+    color: #ddd;
+}
+
+#all-events {
+    margin-top: 2vh;
+    height: 43vh;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 0vh 0.5vw 1vh 0.5vw;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+.small-event {
+    width: 4.5vw;
+}
+
 .post {
     background-color: #fff;
     border-radius: 5px;
@@ -39,16 +83,25 @@
 
 .post_name {
     color: #2870b8;
-    display: inline;
+    display: block;
     font-size: 2vh;
+    padding: 1vh 1vw 0 1vw;
+    padding-left: 2.5vw;
+}
+
+.name {
+    text-align: center;
+    width: 14vw;
+    display: block;
     padding: 1vh 0;
+    color: #b82870;
 }
 
 .post_username {
     display: inline-block;
     font-size: 1.5vh;
     color: #aaa;
-    padding: 1vh 0;
+    padding: 0 1vw 1vh 0.5vw;
 }
 
 .post_caption {
@@ -56,18 +109,142 @@
     padding: 1vh 0;
 }
 
+.post_event {
+    display: inline-block;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.poster {
+    float: left;
+    display: inline;
+    height: 40vh;
+    background-color: aquamarine;
+}
+
+.desc {
+    float: left;
+    display: inline-block;
+    height: 37vh;
+    padding-left: 3vw;
+    padding-top: 1vh;
+}
+
+.event_detail {
+    margin-top: 3vh;
+    font-size: 2vh;
+}
+
+.event_name {
+    color: green;
+}
+
+.button {
+    cursor: pointer;
+    color: green;
+    background: none;
+    padding: 5px 10px 5px 10px;
+    border: none;
+    border-radius: 2vh;
+    border: 1px solid #70b828;
+    transition: all 0.2s linear;
+}
+
+.button:hover {
+    background-color: green;
+    color: white;
+}
+
+.checked {
+    background-color: #70b828;
+    color: white;
+}
+
+.follow-status {
+    float: right;
+    height: 4vh;
+    font-size: 2vh;
+    margin-top: 0.5vh;
+    border-color: #2870b8;
+    color: #2870b8;
+}
+
+.follow-status:hover {
+    background-color: #2870b8;
+}
+
+.follow-status-checked {
+    background-color: #2870b8;
+    color: #fff;
+}
+
 #upcoming-events {
     background-color: #fff;
     border-radius: 5px;
-    height: 30vh;
+    height: 29vh;
+    padding: 0vh 0.5vw 1vh 0.5vw;
+    overflow-y: scroll;
+}
+
+.heading {
+    font-size: 2vh;
+    color: #b82870;
+    width: 18vw;
+    border-bottom: 1px solid #b82870;
+    padding: 1vh 0;
+    position: fixed;
+    background-color: #fff;
+}
+
+.upcoming {
+    margin-top: 6vh;
+}
+
+li {
+    list-style-type: disc;
+    list-style-position: inside;
+    font-size: 2vh;
+    margin-bottom: 1vh;
 }
 
 #suggestions {
     margin-top: 2vh;
     background-color: #fff;
     border-radius: 5px;
-    height: 56vh;
+    height: 55vh;
+    padding: 0vh 0.5vw 1vh 0.5vw;
     overflow-y: scroll;
+}
+
+.packet {
+    padding: 2vh 0;
+    border-top: 1px solid #aaa;
+    height: 8vh;
+}
+
+.packet>img {
+    float: left;
+    height: 8vh;
+}
+
+.discover_text {
+    float: left;
+    text-align: left;
+    margin-left: 0.5vw;
+
+}
+.discover_name {
+    font-size: 2vh;
+    margin-bottom: 1vh;
+}
+
+.discover_date {
+    font-size: 1.5vh;
+    margin-bottom: 1vh;
+}
+
+.discover_time {
+    font-size: 1.5vh;
 }
 
 @media only screen and (max-width: 1080px) {
@@ -82,6 +259,9 @@
     }
     #panel_3 {
         display: none;
+    }
+    .post_caption {
+        font-size: 2vh;
     }
 
 }

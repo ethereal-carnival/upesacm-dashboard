@@ -136,3 +136,7 @@ footer {
         text-align: right;
     }
 }
+
+.button:focus {
+    outline: none;
+}
