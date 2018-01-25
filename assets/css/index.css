@@ -18,13 +18,6 @@ body {
     overflow: hidden;
 }
 
-#semi-foot {
-    height: 40vh;
-    background-color: #2870b8;
-    box-shadow: 0px 0px 8px 2px #14385c;
-    overflow-x: scroll;
-}
-
 #login {
     width: 100vw;
     align-content: center;
@@ -69,6 +62,13 @@ body {
     height: 29vh;
     border-radius: 10px;
     padding: 10vh 4vw;
+}
+
+#semi-foot {
+    height: 40vh;
+    background-color: #2870b8;
+    box-shadow: 0px 0px 8px 2px #14385c;
+    overflow-x: scroll;
 }
 
 #carousel {

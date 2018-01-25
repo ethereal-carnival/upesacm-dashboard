@@ -37,8 +37,8 @@
             </section>
             <section id="semi-foot">
                 <center>
-                    <a href="http://prodigy.upesacm.org" target="_blank" id="carousel"><img style="height: 35vh; margin: 2.5vh;" src="/assets/images/logo_prodigy.gif" />
-                    <img style="height: 35vh; margin: 2.5vh;" src="/assets/images/logo_prodigy.jpg" /></a>
+                    <a href="http://prodigy.upesacm.org" target="_blank" id="carousel"><img style="height: 35vh; margin: 2vh;" src="/assets/images/logo_prodigy.gif" />
+                    <img style="height: 35vh; margin: 2vh;" src="/assets/images/logo_prodigy.jpg" /></a>
                 </center>
             </section>
             <?php include '/assets/parts/footer.php'; ?>
