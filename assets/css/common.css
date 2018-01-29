@@ -169,3 +169,16 @@ footer {
 .button:focus {
     outline: none;
 }
+
+#logout-button {
+    position: fixed;
+    float: right;
+    height: 4vh;
+    width: 3vw;
+    background-color: #fff;
+    top: 11vh;
+    right: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 1.5vh 1vw;
+}

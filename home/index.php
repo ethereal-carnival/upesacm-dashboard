@@ -27,7 +27,9 @@
 
                     <div style="margin-top: 31vh"></div>
                     <center><a href="/people" style="color: #2870b8; text-decoration: none;"><i class="fa fa-search"></i>&nbsp;Find friends on Dashboard</a></center>
-                    <center><div style="margin-top: 2vh;"><a href="/logout" style="color: #dc143c; text-decoration: none;"><i class="fa fa-power-off"></i>&nbsp;Logout</a></div></center>
+                    <center>
+                        <div style="margin-top: 2vh;"><a href="/logout" style="color: #dc143c; text-decoration: none;"><i class="fa fa-power-off"></i>&nbsp;Logout</a></div>
+                    </center>
                 </article>
 
                 <article id="all-events">
@@ -100,6 +102,8 @@
                 </article>
             </section>
         </div>
+
+        <?php include '../assets/parts/logout.php'; ?>
     </body>
 
     </html>

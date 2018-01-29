@@ -32,7 +32,7 @@
         </section>
         <section id="body">
             <article id="form">
-                <form action="../assets/functions/register.php" method="post">
+                <form action="ref.php" method="post">
                     <input class="inp-txt" type="text" placeholder="First and Middle Name*" name="fname" title="Please enter your first and middle name" required />
                     <input class="inp-txt" type="text" placeholder="Last Name*" name="lname" title="Please enter your last name" required />
                     <input class="inp-txt" type="text" name="branch" placeholder="Branch*" title="Please enter your Branch" required />
@@ -52,7 +52,7 @@
                         <option value="female">Female</option>
                         <option value="other">Other</option>
                     </select>
-                    <input class="inp-txt" type="number" name="phone" placeholder="Contact Number*" title="Please enter your Contact Number" required />
+                    <input class="inp-txt" type="number" name="contact" placeholder="Contact Number*" title="Please enter your Contact Number" required />
                     <input class="inp-txt" type="number" name="whatsapp" placeholder="WhatsApp Number" title="Please enter your WhatsApp Number (if any)" />
                     <input class="inp-txt" type="text" name="username" placeholder="Username*" title="Please enter your unique username" required />
                     <input class="inp-txt" type="password" name="password" placeholder="Password*" title="Please enter a password" required />
