@@ -13,7 +13,6 @@
         <?php include '../assets/parts/includes.php'; ?>
         <link href="/assets/css/register.css" rel="stylesheet" />
 
-        <meta name="theme-color" content="#2870b8" />
     </head>
 
     <body>
@@ -32,7 +31,7 @@
         </section>
         <section id="body">
             <article id="form">
-                <form action="ref.php" method="post">
+                <form action="verify.php" method="post">
                     <input class="inp-txt" type="text" placeholder="First and Middle Name*" name="fname" title="Please enter your first and middle name" required />
                     <input class="inp-txt" type="text" placeholder="Last Name*" name="lname" title="Please enter your last name" required />
                     <input class="inp-txt" type="text" name="branch" placeholder="Branch*" title="Please enter your Branch" required />

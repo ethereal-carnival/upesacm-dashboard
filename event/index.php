@@ -4,15 +4,18 @@
         echo "<html><head><script type='text/javascript'>window.alert('You need to be logged-in to access this page'); window.location.href='/';</script></head></html>";
         die();
     }
-    else if(!isset($_GET["name"])) {
-        $_GET["name"]="Glitch";
+    else if(!isset($_GET["id"])) {
+        $_GET["id"]="event_1";
     }
+    include '../assets/parts/connect.php';
+    $id = $_GET["id"];
+    include '../assets/sql/fetch_one_from_events.php';
 ?>
     <html lang="en">
 
     <head>
         <title>
-            <?php echo $_GET["name"]; ?> - Dashboard, UPES ACM Student Chapter</title>
+            <?php echo $name; ?> - Dashboard, UPES ACM Student Chapter</title>
 
         <?php include "../assets/parts/includes.php"; ?>
 
@@ -155,34 +158,35 @@
     <body style="">
         <?php include '../assets/parts/header.php'; ?>
         <section style="float: left; margin-top: 9vh; height: 82vh; width: 20vw; background-color: #2870b8; background-color: rgba(0,0,0,0.8); overflow-y: scroll;">
-            <article class="event-list"><a href="?name=International Coding League">International Coding League</a></article>
-            <article class="event-list"><a href="?name=Frame of Reference">Frame of Reference</a></article>
-            <article class="event-list checked"><a href="?name=Glitch">Glitch</a></article>
-            <article class="event-list"><a href="?name=Engage">Engage</a></article>
-            <article class="event-list"><a href="?name=Echo">Echo</a></article>
-            <article class="event-list"><a href="?name=Capture the Flag">Capture the Flag</a></article>
-            <article class="event-list"><a href="?name=Braille Code">Braille Code</a></article>
-            <article class="event-list"><a href="?name=Tuning Fork">Tuning Fork</a></article>
-            <article class="event-list"><a href="?name=Travelling Salesman">Travelling Salesman</a></article>
-            <article class="event-list" style="margin-bottom: 2vh;"><a href="?name=Augmented Reality Workshop">Augmented Reality Workshop</a></article>
+            <?php
+                $result = mysqli_query($con, "select event_id, name from events");
+                while($row = mysqli_fetch_array($result)) {
+                    if($row[0]==$id) echo "
+                    <article class='event-list checked'><a href='?id=$row[0]'>$row[1]</a></article>
+                    ";
+                    else echo "
+                    <article class='event-list'><a href='?id=$row[0]'>$row[1]</a></article>
+                    ";
+                }
+            ?>
         </section>
         <section style="float: left; margin-top: 9vh">
             <div style="height: 78vh; width: 58vw; background-color: rgba(0,0,0,0.8); padding: 2vh 1vw; overflow-y: scroll;">
                 <center>
-                    <div id="poster" style="text-align: center; display: inline;"><img src="/assets/images/event_3.jpg" style="height: 30vh;" /></div>
+                    <div id="poster" style="text-align: center; display: inline;"><img src="/assets/images/event_<?php echo $id; ?>.jpg" style="height: 30vh;" /></div>
                     <div class="base" style="display: inline-block; text-align: left; overflow-y: scroll;">
                         <div class="in-text" id="name">
-                            <?php echo $_GET["name"]; ?>
+                            <?php echo $name; ?>
                         </div>
-                        <div class="in-text" id="date">Date: 2nd February</div>
-                        <div class="in-text" id="Time">Time: 10:200 - 12:00</div>
-                        <div class="in-text" id="venue">Venue: Old Amphitheatre</div>
-                        <div class="in-text" id="participants">Particpants: 48</div>
+                        <div class="in-text" id="date">Date: <?php echo $date; ?></div>
+                        <div class="in-text" id="Time">Time: <?php echo $time; ?></div>
+                        <div class="in-text" id="venue">Venue: <?php echo $venue; ?></div>
+                        <div class="in-text" id="participants">Particpants: <?php echo $participants_no; ?></div>
                         <button id="status" style="width: 10vw; height: 4vh;"><i class="fa fa-circle-o"></i>&nbsp;&nbsp;Participate</button>
                     </div>
                 </center>
                 <div class="in-text" id="description">
-                    <h1>Description:</h1><br />Lick sellotape mew damn that dog but eat all the power cords. Drool thinking longingly about tuna brine and kitten is playing with dead mouse for stare at the wall, play with food and get confused by dust prance along on top of the garden fence, annoy the neighbor's dog and make it bark meowzer. If it smells like fish eat as much as you wish licks paws and howl on top of tall thing small kitty warm kitty little balls of fur or cat mojo yet spill litter box, scratch at owner, destroy all furniture, especially couch and sniff other cat's butt and hang jaw half open thereafter. Mark territory open the door, let me out, let me out, let me-out, let me-aow, let meaow, meaow!. And sometimes switches in french and say "miaou" just because well why not. Climb a tree, wait for a fireman jump to fireman then scratch his face behind the couch, a nice warm laptop for me to sit on, be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day i shredded your linens for you and with tail in the air lies down . Meow meow be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day, sit in box.
+                    <h1>Description:</h1><br /><?php echo $description; ?>
                 </div>
                 <br />
                 <div class="in-text" id="description">

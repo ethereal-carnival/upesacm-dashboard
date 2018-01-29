@@ -1,45 +1,64 @@
 <?php
-    session_start();
-    if(!isset($_SESSION["username"])) {
-        header("location: /");
-        die();
-    }
+
+    $username = $_SESSION["username"];
+    include 'assets/parts/connect.php';
+
+    $select_query = "select fname, lname from users where username='$username';";
+    $result = mysqli_query($con, $select_query);
+    $row = mysqli_fetch_array($result);
+    $fname = $row['fname'];
+    $lname = $row['lname'];
 ?>
     <html lang="en">
 
     <head>
         <title>Home - Dashboard, UPES ACM Student Chapter</title>
-        <?php include '../assets/parts/includes.php'; ?>
+        <?php include 'assets/parts/includes.php'; ?>
         <link href="/assets/css/home.css" rel="stylesheet" />
 
         <script type="text/javascript" src="../assets/js/home.js"></script>
-
-        <meta name="theme-color" content="#2870b8" />
     </head>
 
     <body>
-        <?php include "../assets/parts/header-home.php"; ?>
+        <?php include "assets/parts/header-home.php"; ?>
         <div id="panel_wrapper">
             <section class="panel" id="panel_1">
                 <article id="photograph" style="overflow-y: scroll;">
                     <button id="dp" onmouseover="document.getElementById('change_dp').style.opacity='0.9';" onmouseout="document.getElementById('change_dp').style.opacity='0';" style="position: fixed;"><div id="change_dp"><span style="display: block; font-size: 4vh; margin-bottom: 0.5vh;"><i class="fa fa-camera"></i></span>Click to update display picture</div></button>
-                    <div class="post_name name" style="position: fixed; margin-top: 27vh">Vyom Maitreya</div>
+                    <div class="post_name name" style="position: fixed; margin-top: 28vh; font-size: 2vh;"><?php echo $fname." ".$lname; ?></div>
 
-                    <div style="margin-top: 31vh"></div>
-                    <center><a href="/people" style="color: #2870b8; text-decoration: none;"><i class="fa fa-search"></i>&nbsp;Find friends on Dashboard</a></center>
-                    <center>
-                        <div style="margin-top: 2vh;"><a href="/logout" style="color: #dc143c; text-decoration: none;"><i class="fa fa-power-off"></i>&nbsp;Logout</a></div>
-                    </center>
+                    <div style="margin-top: 33vh"></div>
+                    <center><a href="/people" style="color: #2870b8; text-decoration: none; font-size: 2vh;"><i class="fa fa-search"></i>&nbsp;Find friends on Dashboard</a></center>
                 </article>
 
                 <article id="all-events">
                     <div class="heading" style="width: 15vw;">All Events Participated In</div>
                     <div class="upcoming"></div>
-                    <a href="/event/?name=International Coding League"><img class="small-event" src="/assets/images/event_1.jpg" /></a>
-                    <img class="small-event" src="/assets/images/event_2.jpg" />
-                    <img class="small-event" src="/assets/images/event_3.jpg" />
-                    <img class="small-event" src="/assets/images/event_4.jpg" />
-                    <img class="small-event" src="/assets/images/event_5.jpg" />
+
+                    <?php
+                        $result = mysqli_query($con, "select event_id from user_events where username='$username';");
+                        $total = mysqli_fetch_array(mysqli_query($con, "select count(*) from events"))[0];
+                        $count = 0;
+
+                        include 'assets/sql/fetch_all_from_events.php';
+
+                        while($row = mysqli_fetch_array($result)) {
+                            $id[$row[0]]=1;
+                            $count++;
+                        }
+                        if($count==0) echo "You have not participated in any events, yet.";
+                        else {
+                            $ind = 0;
+                            foreach( array_reverse($id) as $i) {
+                                $indf=$total-$ind;
+                                if($i==1) echo "
+                                <a href='/event/?id=$indf'><img class='small-event' src='/assets/images/event_$indf.jpg' /></a>
+                                ";
+                                $ind++;
+                            }
+                        }
+
+                    ?>
                 </article>
             </section>
 
@@ -59,51 +78,34 @@
                 <article id="suggestions">
                     <div class="heading">Discover More</div>
                     <div style="margin-top: 4vh;"></div>
-                    <div class="packet">
-                        <img src="/assets/images/event_6.jpg" />
-                        <div class="discover_text">
-                            <div class="discover_name">Capture The Flag</div>
-                            <div class="discover_date">2nd February</div>
-                            <div class="discover_time">3pm - 5pm</div>
-                        </div>
-                    </div>
-                    <div class="packet">
-                        <img src="/assets/images/event_7.jpg" />
-                        <div class="discover_text">
-                            <div class="discover_name">Braille Code</div>
-                            <div class="discover_date">2nd February</div>
-                            <div class="discover_time">To Be Announced</div>
-                        </div>
-                    </div>
-                    <div class="packet">
-                        <img src="/assets/images/event_8.jpg" />
-                        <div class="discover_text">
-                            <div class="discover_name">Tuning Fork</div>
-                            <div class="discover_date">2nd February</div>
-                            <div class="discover_time">To Be Announced</div>
-                        </div>
-                    </div>
-                    <div class="packet">
-                        <img src="/assets/images/event_9.jpg" />
-                        <div class="discover_text">
-                            <div class="discover_name">Travelling Salesman</div>
-                            <div class="discover_date">2nd February</div>
-                            <div class="discover_time">To Be Announced</div>
-                        </div>
-                    </div>
-                    <div class="packet">
-                        <img src="/assets/images/event_10.jpg" />
-                        <div class="discover_text">
-                            <div class="discover_name">IBM Workshop</div>
-                            <div class="discover_date">2nd February</div>
-                            <div class="discover_time">To Be Announced</div>
-                        </div>
-                    </div>
+
+                    <?php
+                        $ind = 0;
+                        foreach($id as $i) {
+                            if($ind==0) {
+                                $ind++;
+                                continue;
+                            }
+                            if($i==0) echo "
+                            <a href='/event/?id=$ind'>
+                                <div class='packet'>
+                                    <img src='/assets/images/event_$ind.jpg' />
+                                    <div class='discover_text'>
+                                        <div class='discover_name'>".$name[$ind]."</div>
+                                        <div class='discover_date'>".$date[$ind]."</div>
+                                        <div class='discover_time'>".$time[$ind]."</div>
+                                    </div>
+                                </div>
+                            </a>
+                            ";
+                            $ind++;
+                        }
+                    ?>
                 </article>
             </section>
         </div>
 
-        <?php include '../assets/parts/logout.php'; ?>
+        <?php include 'assets/parts/logout.php'; ?>
     </body>
 
     </html>
