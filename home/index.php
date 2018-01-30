@@ -25,14 +25,14 @@
             <section class="panel" id="panel_1">
                 <article id="photograph" style="overflow-y: scroll;">
                     <button id="dp" onmouseover="document.getElementById('change_dp').style.opacity='0.9';" onmouseout="document.getElementById('change_dp').style.opacity='0';" style="position: fixed;"><div id="change_dp"><span style="display: block; font-size: 4vh; margin-bottom: 0.5vh;"><i class="fa fa-camera"></i></span>Click to update display picture</div></button>
-                    <div class="post_name name" style="position: fixed; margin-top: 28vh; font-size: 2vh;"><?php echo $fname." ".$lname; ?></div>
+                    <div class="post_name name" style="position: fixed; margin-top: 27.5vh; font-size: 2vh;"><?php echo $fname." ".$lname; ?></div>
 
-                    <div style="margin-top: 33vh"></div>
+                    <div style="margin-top: 32vh"; padding: 0;></div>
                     <center><a href="/people" style="color: #2870b8; text-decoration: none; font-size: 2vh;"><i class="fa fa-search"></i>&nbsp;Find friends on Dashboard</a></center>
                 </article>
 
                 <article id="all-events">
-                    <div class="heading" style="width: 15vw;">All Events Participated In</div>
+                    <div class="heading" style="width: 14vw;">All Events Participated In</div>
                     <div class="upcoming"></div>
 
                     <?php

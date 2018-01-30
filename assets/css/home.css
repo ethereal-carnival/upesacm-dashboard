@@ -5,20 +5,20 @@
 .panel {
     border-radius: 5px;
     height: 88vh;
-    margin: 0 0.5vw;
+    margin: 0 0.25vw;
     padding: 0;
 }
 
 #panel_1 {
     margin-left: 0;
-    width: 16vw;
+    width: 15vw;
     display: inline-block;
     background: none;
     overflow-y: scroll;
 }
 
 #panel_2 {
-    width: 42vw;
+    width: 44.5vw;
     display: inline-block;
     background: none;
     overflow-y: scroll;
@@ -33,10 +33,10 @@
 }
 
 #photograph {
-    padding: 2vh 1vw;
+    padding: 1vh 0.5vw;
     background-color: #fff;
     border-radius: 5px;
-    height: 37vh;
+    height: 35vh;
 }
 
 #dp {
@@ -62,8 +62,8 @@
 }
 
 #all-events {
-    margin-top: 2vh;
-    height: 44vh;
+    margin-top: 1vh;
+    height: 49vh;
     background-color: #fff;
     border-radius: 5px;
     padding: 0vh 0.5vw 1vh 0.5vw;
@@ -78,7 +78,8 @@
 .post {
     background-color: #fff;
     border-radius: 5px;
-    padding: 1vh 1vw;
+    padding: 0.5vh 0.5vw 1vh 0.5vw;
+    margin-bottom: 1vh;
 }
 
 .post_name {
@@ -126,7 +127,7 @@
     float: left;
     display: inline-block;
     height: 37vh;
-    padding-left: 3vw;
+    padding-left: 4vw;
     padding-top: 1vh;
 }
 
@@ -172,7 +173,7 @@
 #upcoming-events {
     background-color: #fff;
     border-radius: 5px;
-    height: 29vh;
+    height: 30vh;
     padding: 0vh 0.5vw 1vh 0.5vw;
     overflow-y: scroll;
 }
@@ -199,7 +200,7 @@ li {
 }
 
 #suggestions {
-    margin-top: 2vh;
+    margin-top: 1vh;
     background-color: #fff;
     border-radius: 5px;
     height: 55vh;

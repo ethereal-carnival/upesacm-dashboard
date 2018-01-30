@@ -19,7 +19,6 @@
             </div>
         </div>
     </article>
-    <br />
     <article class="post">
         <div class="post_pic" style="display: inline; float: left; margin-top: 1vh;"><img src="/assets/images/dp2.jpg" style="height: 4vh; width: 4vh; display: inline; border-radius: 100px;" /></div>
         <button class="button follow-status follow-status-checked">Following</button>
@@ -40,7 +39,6 @@
             </div>
         </div>
     </article>
-    <br />
     <article class="post">
         <div class="post_pic" style="display: inline; float: left; margin-top: 1vh;"><img src="/assets/images/dp.jpg" style="height: 4vh; display: inline; border-radius: 100px;" /></div>
         <button class="button follow-status follow-status-checked">Following</button>

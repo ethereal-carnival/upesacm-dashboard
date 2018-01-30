@@ -59,10 +59,10 @@
                 $result = mysqli_query($con, "select event_id, name from events");
                 while($row = mysqli_fetch_array($result)) {
                     if($row[0]==$id) echo "
-                    <article class='event-list checked'><a href='?id=$row[0]'>$row[1]</a></article>
+                    <a href='?id=$row[0]'><article class='event-list checked'>$row[1]</article></a>
                     ";
                     else echo "
-                    <article class='event-list'><a href='?id=$row[0]'>$row[1]</a></article>
+                    <a href='?id=$row[0]'><article class='event-list'>$row[1]</article></a>
                     ";
                 }
             ?>
@@ -87,7 +87,7 @@
                         <div class="in-text" id="participants">Particpants:
                             <?php echo $participants_no; ?>
                         </div>
-                        <button id="status" style="width: 10vw; height: 4vh;" onclick="status();" class="
+                        <button id="status" style="padding-left:1vw; padding-right: 1vw; height: 4vh;" onclick="status();" class="
                         <?php if(mysqli_fetch_array(mysqli_query($con, "select count(*) from user_events where username='$username' and event_id=$id"))[0])
                             { echo "participating"; $text = "Participating"; }
                         else { echo "not-participating"; $text = "Participate"; }                                                                                                       ?>
@@ -108,94 +108,58 @@
             <div class="panel">
                 <div class="heading">Participating Friends</div>
                 <div class="fill"></div>
-                <div class="entry">
-                    <div class="pic"><img src="/assets/images/dp.jpg" style="float: left; height: 4vh; border-radius: 50px;"></div>
-                    <div class="identity" style="float: left">
-                        <div class="name">Vyom Maitreya</div>
-                        <button class="follow">Follow</button>
-                    </div>
-                </div>
-                <div class="entry">
-                    <div class="pic"><img src="/assets/images/dp2.jpg" style="float: left; height: 4vh; border-radius: 50px;"></div>
-                    <div class="identity" style="float: left">
-                        <div class="name">John Smith</div>
-                        <button class="follow following">Following</button>
-                    </div>
-                </div>
-                <div class="entry">
-                    <div class="pic"><img src="/assets/images/dp.jpg" style="float: left; height: 4vh; border-radius: 50px;"></div>
-                    <div class="identity" style="float: left">
-                        <div class="name">Vyom Maitreya</div>
-                        <button class="follow">Follow</button>
-                    </div>
-                </div>
-                <div class="entry">
-                    <div class="pic"><img src="/assets/images/dp2.jpg" style="float: left; height: 4vh; border-radius: 50px;"></div>
-                    <div class="identity" style="float: left">
-                        <div class="name">John Smith</div>
-                        <button class="follow following">Following</button>
-                    </div>
-                </div>
-                <div class="entry">
-                    <div class="pic"><img src="/assets/images/dp.jpg" style="float: left; height: 4vh; border-radius: 50px;"></div>
-                    <div class="identity" style="float: left">
-                        <div class="name">Vyom Maitreya</div>
-                        <button class="follow">Follow</button>
-                    </div>
-                </div>
-                <div class="entry">
-                    <div class="pic"><img src="/assets/images/dp2.jpg" style="float: left; height: 4vh; border-radius: 50px;"></div>
-                    <div class="identity" style="float: left">
-                        <div class="name">John Smith</div>
-                        <button class="follow following">Following</button>
-                    </div>
-                </div>
+                <?php
+                    $result = mysqli_query($con, "select username from user_events where event_id=$id;");
+                    while($row=mysqli_fetch_array($result)) {
+                        $result_t = mysqli_query($con, "select user_2 from friends where user_1='$username' and user_2='$row[0]';");
+                        $friend_username = mysqli_fetch_array($result_t)[0];
+                        if($friend_username) {
+                            $result_t = mysqli_query($con, "select fname,lname from users where username='$friend_username';");
+                            $row_t = mysqli_fetch_array($result_t);
+                            $friend_name = $row_t[0]." ".$row_t[1];
+                            echo "
+                            <div class=\"entry\">
+                                <div class=\"pic\"><img src=\"/assets/profile-pictures/$friend_username.jpg\" style=\"float: left; height: 4vh; border-radius: 50px;\"></div>
+                                <div class=\"identity\" style=\"float: left\">
+                                    <div class=\"name\">$friend_name</div>
+                                    <button class=\"follow following\">Following</button>
+                                </div>
+                            </div>
+                            ";
+                        }
+                    }
+
+                ?>
             </div>
+
             <div class="panel" style="margin-top: 2vh;">
                 <div class="heading">Other Participants</div>
                 <div class="fill"></div>
-                <div class="entry">
-                    <div class="pic"><img src="/assets/images/dp.jpg" style="float: left; height: 4vh; border-radius: 50px;"></div>
-                    <div class="identity" style="float: left">
-                        <div class="name">Vyom Maitreya</div>
-                        <button class="follow">Follow</button>
-                    </div>
-                </div>
-                <div class="entry">
-                    <div class="pic"><img src="/assets/images/dp2.jpg" style="float: left; height: 4vh; border-radius: 50px;"></div>
-                    <div class="identity" style="float: left">
-                        <div class="name">John Smith</div>
-                        <button class="follow following">Following</button>
-                    </div>
-                </div>
-                <div class="entry">
-                    <div class="pic"><img src="/assets/images/dp.jpg" style="float: left; height: 4vh; border-radius: 50px;"></div>
-                    <div class="identity" style="float: left">
-                        <div class="name">Vyom Maitreya</div>
-                        <button class="follow">Follow</button>
-                    </div>
-                </div>
-                <div class="entry">
-                    <div class="pic"><img src="/assets/images/dp2.jpg" style="float: left; height: 4vh; border-radius: 50px;"></div>
-                    <div class="identity" style="float: left">
-                        <div class="name">John Smith</div>
-                        <button class="follow following">Following</button>
-                    </div>
-                </div>
-                <div class="entry">
-                    <div class="pic"><img src="/assets/images/dp.jpg" style="float: left; height: 4vh; border-radius: 50px;"></div>
-                    <div class="identity" style="float: left">
-                        <div class="name">Vyom Maitreya</div>
-                        <button class="follow">Follow</button>
-                    </div>
-                </div>
-                <div class="entry">
-                    <div class="pic"><img src="/assets/images/dp2.jpg" style="float: left; height: 4vh; border-radius: 50px;"></div>
-                    <div class="identity" style="float: left">
-                        <div class="name">John Smith</div>
-                        <button class="follow following">Following</button>
-                    </div>
-                </div>
+                <?php
+                    $result = mysqli_query($con, "select username from user_events where event_id=$id;");
+                    while($row=mysqli_fetch_array($result)) {
+                        $result_t = mysqli_query($con, "select count(*) from friends where user_1='$username' and user_2='$row[0]';");
+                        $row_t = mysqli_fetch_array($result_t);
+                        if($row_t[0] == 0 && $row[0]!=$username) {
+                            $other_username = $row[0];
+                            if($other_username) {
+                                $result_t = mysqli_query($con, "select fname,lname from users where username='$other_username';");
+                                $row_t = mysqli_fetch_array($result_t);
+                                $other_name = $row_t[0]." ".$row_t[1];
+                                echo "
+                                <div class=\"entry\">
+                                    <div class=\"pic\"><img src=\"/assets/profile-pictures/$other_username.jpg\" style=\"float: left; height: 4vh; border-radius: 50px;\"></div>
+                                    <div class=\"identity\" style=\"float: left\">
+                                        <div class=\"name\">$other_name</div>
+                                        <button class=\"follow following\">Following</button>
+                                    </div>
+                                </div>
+                                ";
+                            }
+                        }
+                    }
+
+                ?>
             </div>
         </section>
         <?php include '../assets/parts/footer.php'; ?>
