@@ -131,8 +131,9 @@ button:focus {
 }
 
 .follow:hover {
-    background-color: #fff;
-    color: #2870b8;
+    border-color: #2870b8;
+    background-color: #2870b8;
+    color: #fff;
 }
 
 .following {

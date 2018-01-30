@@ -47,6 +47,27 @@
                 });
             }
 
+            function follow_status(user_2, view) {
+                $.ajax({
+                    url: \"../assets/functions/follow_toggle.php\",
+                    data: {
+                        user_1: '$username',
+                        user_2: user_2
+                    },
+                    type: 'post',
+                    success: function(output) {
+                        if(output == 'followed') {
+                            view.className = 'follow following';
+                            view.innerHTML = 'Following';
+                        }
+                        else {
+                            view.className = 'follow';
+                            view.innerHTML = 'Follow';
+                        }
+                    }
+                });
+            }
+
         </script>
         ";
         ?>
@@ -110,6 +131,7 @@
                 <div class="fill"></div>
                 <?php
                     $result = mysqli_query($con, "select username from user_events where event_id=$id;");
+                    $count=0;
                     while($row=mysqli_fetch_array($result)) {
                         $result_t = mysqli_query($con, "select user_2 from friends where user_1='$username' and user_2='$row[0]';");
                         $friend_username = mysqli_fetch_array($result_t)[0];
@@ -122,12 +144,18 @@
                                 <div class=\"pic\"><img src=\"/assets/profile-pictures/$friend_username.jpg\" style=\"float: left; height: 4vh; border-radius: 50px;\"></div>
                                 <div class=\"identity\" style=\"float: left\">
                                     <div class=\"name\">$friend_name</div>
-                                    <button class=\"follow following\">Following</button>
+                                    <button class=\"follow following\" onclick=\"follow_status('$friend_username', this);\">Following</button>
                                 </div>
                             </div>
                             ";
+                            $count++;
                         }
                     }
+                    if($count==0) echo "
+                        <div style=\"margin-top: 3vh; text-align: center; white-space: normal;\">
+                            None of your current friends on dashboard are participating. Add more friends to see them here.</div>
+                        </div>
+                        ";
 
                 ?>
             </div>
@@ -151,12 +179,13 @@
                                     <div class=\"pic\"><img src=\"/assets/profile-pictures/$other_username.jpg\" style=\"float: left; height: 4vh; border-radius: 50px;\"></div>
                                     <div class=\"identity\" style=\"float: left\">
                                         <div class=\"name\">$other_name</div>
-                                        <button class=\"follow following\">Following</button>
+                                        <button class=\"follow\" id='follow-status' onclick=\"follow_status('$other_username', this);\">Follow</button>
                                     </div>
                                 </div>
                                 ";
                             }
                         }
+
                     }
 
                 ?>

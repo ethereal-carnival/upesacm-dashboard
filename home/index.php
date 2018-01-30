@@ -24,7 +24,7 @@
         <div id="panel_wrapper">
             <section class="panel" id="panel_1">
                 <article id="photograph" style="overflow-y: scroll;">
-                    <button id="dp" onmouseover="document.getElementById('change_dp').style.opacity='0.9';" onmouseout="document.getElementById('change_dp').style.opacity='0';" style="position: fixed;"><div id="change_dp"><span style="display: block; font-size: 4vh; margin-bottom: 0.5vh;"><i class="fa fa-camera"></i></span>Click to update display picture</div></button>
+                    <button id="dp" onmouseover="document.getElementById('change_dp').style.opacity='0.9';" onmouseout="document.getElementById('change_dp').style.opacity='0';" style="position: fixed; background-image: url(/assets/profile-pictures/<?php echo "$username.jpg"; ?>);"><div id="change_dp"><span style="display: block; font-size: 4vh; margin-bottom: 0.5vh;"><i class="fa fa-camera"></i></span>Click to update display picture</div></button>
                     <div class="post_name name" style="position: fixed; margin-top: 27.5vh; font-size: 2vh;"><?php echo $fname." ".$lname; ?></div>
 
                     <div style="margin-top: 32vh"; padding: 0;></div>

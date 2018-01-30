@@ -42,10 +42,10 @@
 #dp {
     border: none;
     cursor: pointer;
-    background-image: url(/assets/images/dp.jpg);
+    background-image: url(/assets/images/default-dp.jpg);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     height: 14vw;
     width: 14vw;
 }

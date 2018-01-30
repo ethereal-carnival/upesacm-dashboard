@@ -15,4 +15,10 @@
 
     $query = "insert into users VALUES ( '$username', '$password', '$fname', '$lname', '$branch', $year, $sap, '$email', '$gender', '$contact', '$whatsapp', DEFAULT);";
     mysqli_query($con, $query);
+    $file = '../assets/images/default_dp.jpg';
+    $newfile = "../assets/profile-pictures/$username.jpg";
+
+    if (!copy($file, $newfile)) {
+        echo "failed to copy $file...\n";
+    }
 ?>
