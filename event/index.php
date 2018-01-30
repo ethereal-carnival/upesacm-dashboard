@@ -19,140 +19,37 @@
 
         <?php include "../assets/parts/includes.php"; ?>
 
-        <style>
-            footer {
-                position: fixed;
+        <link href="../assets/css/events.css" type="text/css" rel="stylesheet" />
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <?php
+        $username = $_SESSION['username'];
+        echo "
+        <script type=\"text/javascript\">
+            function status() {
+                $.ajax({
+                    url: \"../assets/functions/participation_toggle.php\",
+                    data: {
+                        username: '$username',
+                        event_id: $id
+                    },
+                    type: 'post',
+                    success: function(output) {
+                        if(output == 'added') {
+                            document.getElementById('status').className = 'participating';
+                            document.getElementById('status').innerHTML = '<i class=\"fa fa-check-circle\"></i>&nbsp;&nbsp;Participating';
+                        }
+                        else {
+                            document.getElementById('status').className = 'not-participating';
+                            document.getElementById('status').innerHTML = '<i class=\"fa fa-circle-o\"></i>&nbsp;&nbsp;Participate';
+                        }
+                    }
+                });
             }
 
-            body {
-                background-image: url(/assets/images/wallpaper.jpg);
-            }
-
-            .base {
-                padding-left: 2vw;
-            }
-
-            .in-text {
-                color: #fff;
-                font-size: 2vh;
-                margin-top: 1vh;
-            }
-
-            .event-list {
-                background-color: #fff;
-                background-color: #f0f7e9;
-                border-radius: 15px;
-                margin: 2vh 0.5vw 0 1vw;
-                height: 8vh;
-                font-size: 2.75vh;
-                line-height: 2.5;
-                text-align: center;
-            }
-
-            .event-list>a {
-                text-decoration: none;
-                color: #000;
-            }
-
-            .checked {
-                background-color: #2870b8;
-                color: #fff;
-            }
-
-            .checked>a {
-                color: #fff;
-            }
-
-            button {
-                margin-top: 2vh;
-                margin-bottom: 4vh;
-                cursor: pointer;
-                color: #fff;
-                background: none;
-                padding: 5px 10px 5px 10px;
-                border: none;
-                border-radius: 2vh;
-                border: 1px solid #70b828;
-                transition: all 0.2s linear;
-                font-size: 2vh;
-            }
-
-            button:hover {
-                border-color: green;
-                background-color: green;
-            }
-
-            button:focus {
-                outline: none;
-            }
-
-            .panel {
-                background-color: rgba(255, 255, 255, 1);
-                border-radius: 5px;
-                height: 38vh;
-                width: 17vw;
-                padding: 0vh 0.5vw;
-                margin: 2vh 1vw;
-                overflow-y: scroll;
-            }
-
-            .heading {
-                color: #2870b8;
-                font-size: 2vh;
-                border-bottom: 1px solid #2870b8;
-                padding: 1vh 0.5vw;
-                position: fixed;
-                background-color: #fff;
-                width: 16vw;
-            }
-
-            .fill {
-                height: 4vh;
-            }
-
-            .entry {
-                clear: both;
-                border-top: 1px solid #2870b8;
-                padding: 2vh 0 6vh 0;
-            }
-
-            .pic>img {
-                width: 4vh;
-            }
-
-            .identity {
-                margin-left: 1vw;
-                width: 13.9vw;
-                line-height: 4vh;
-            }
-
-            .name {
-                float: left;
-                line-height: 4vh;
-            }
-
-            .follow {
-                float: right;
-                border-color: #2870b8;
-                height: 3vh;
-                font-size: 1.5vh;
-                margin: 0;
-                margin-top: 0.5vh;
-                color: #2870b8;
-                padding: 2px 0.5vw;
-            }
-
-            .follow:hover {
-                background-color: #fff;
-                color: #2870b8;
-            }
-
-            .following {
-                background-color: #2870b8;
-                color: #fff;
-            }
-
-        </style>
+        </script>
+        ";
+        ?>
     </head>
 
     <body style="">
@@ -178,15 +75,28 @@
                         <div class="in-text" id="name">
                             <?php echo $name; ?>
                         </div>
-                        <div class="in-text" id="date">Date: <?php echo $date; ?></div>
-                        <div class="in-text" id="Time">Time: <?php echo $time; ?></div>
-                        <div class="in-text" id="venue">Venue: <?php echo $venue; ?></div>
-                        <div class="in-text" id="participants">Particpants: <?php echo $participants_no; ?></div>
-                        <button id="status" style="width: 10vw; height: 4vh;"><i class="fa fa-circle-o"></i>&nbsp;&nbsp;Participate</button>
+                        <div class="in-text" id="date">Date:
+                            <?php echo $date; ?>
+                        </div>
+                        <div class="in-text" id="Time">Time:
+                            <?php echo $time; ?>
+                        </div>
+                        <div class="in-text" id="venue">Venue:
+                            <?php echo $venue; ?>
+                        </div>
+                        <div class="in-text" id="participants">Particpants:
+                            <?php echo $participants_no; ?>
+                        </div>
+                        <button id="status" style="width: 10vw; height: 4vh;" onclick="status();" class="
+                        <?php if(mysqli_fetch_array(mysqli_query($con, "select count(*) from user_events where username='$username' and event_id=$id"))[0])
+                            { echo "participating"; $text = "Participating"; }
+                        else { echo "not-participating"; $text = "Participate"; }                                                                                                       ?>
+                        "><i class="fa fa<?php if($text=="Participating") echo '-check'; ?>-circle<?php if($text=="Participate") echo '-o'; ?>"></i>&nbsp;&nbsp;<?php echo $text; ?></button>
                     </div>
                 </center>
                 <div class="in-text" id="description">
-                    <h1>Description:</h1><br /><?php echo $description; ?>
+                    <h1>Description:</h1><br />
+                    <?php echo $description; ?>
                 </div>
                 <br />
                 <div class="in-text" id="description">
