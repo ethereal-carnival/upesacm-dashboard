@@ -8,7 +8,7 @@
         echo "unfollowed";
     }
     else {
-        $query = "insert into friends values('$user_1','$user_2')";
+        $query = "insert into friends values('$user_1','$user_2',DEFAULT)";
         echo "followed";
     }
 

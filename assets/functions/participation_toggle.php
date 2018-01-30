@@ -8,7 +8,7 @@
         echo "deleted";
     }
     else {
-        $query = "insert into user_events values('$username',$id)";
+        $query = "insert into user_events values('$username',$id,DEFAULT)";
         echo "added";
     }
 

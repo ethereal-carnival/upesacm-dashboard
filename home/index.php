@@ -16,18 +16,54 @@
         <?php include 'assets/parts/includes.php'; ?>
         <link href="/assets/css/home.css" rel="stylesheet" />
 
-        <script type="text/javascript" src="../assets/js/home.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <?php echo "<script type=\"text/javascript\">
+            function check(x, id) {
+                $.ajax({
+                    url: \"../assets/functions/participation_toggle.php\",
+                    data: {
+                        username: '$username',
+                        event_id: id
+                    },
+                    type: 'post',
+                    success: function(output) {
+                        if (output == 'added') {
+                            x.className = 'button event_status event_detail checked';
+                            x.innerHTML = '<i class=\"fa fa-check-circle\"></i>&nbsp;&nbsp;Participating';
+                        } else {
+                            x.className = 'button event_status event_detail';
+                            x.innerHTML = '<i class=\"fa fa-circle-o\"></i>&nbsp;&nbsp;Participate';
+                        }
+                    }
+                });
+            }
+
+        </script>
+        "; ?>
+
+        <script type="text/javascript">
+            function upload() {
+                document.getElementById("fileToUpload").click();
+            }
+        </script>
     </head>
 
     <body>
         <?php include "assets/parts/header-home.php"; ?>
+        <?php include "upload.php"; ?>
         <div id="panel_wrapper">
             <section class="panel" id="panel_1">
                 <article id="photograph" style="overflow-y: scroll;">
-                    <button id="dp" onmouseover="document.getElementById('change_dp').style.opacity='0.9';" onmouseout="document.getElementById('change_dp').style.opacity='0';" style="position: fixed; background-image: url(/assets/profile-pictures/<?php echo "$username.jpg"; ?>);"><div id="change_dp"><span style="display: block; font-size: 4vh; margin-bottom: 0.5vh;"><i class="fa fa-camera"></i></span>Click to update display picture</div></button>
-                    <div class="post_name name" style="position: fixed; margin-top: 27.5vh; font-size: 2vh;"><?php echo $fname." ".$lname; ?></div>
+                        <button id="dp" onmouseover="document.getElementById('change_dp').style.opacity='0.9';" onmouseout="document.getElementById('change_dp').style.opacity='0';" style="position: fixed; background-image: url(/assets/profile-pictures/<?php echo "$username.jpg?v=".Date("Y.m.d.G.i.s"); ?>);">
+                        <div id="change_dp" onclick="upload();">
+                            <span style="display: block; font-size: 4vh; margin-bottom: 0.5vh;"><i class="fa fa-camera"></i></span>Click to update display picture
+                        </div>
+                    </button>
+                    <div class="post_name name" style="position: fixed; margin-top: 27.5vh; font-size: 2vh;">
+                        <?php echo $fname." ".$lname; ?>
+                    </div>
 
-                    <div style="margin-top: 32vh"; padding: 0;></div>
+                    <div style="margin-top: 32vh" ; padding: 0;></div>
                     <center><a href="/people" style="color: #2870b8; text-decoration: none; font-size: 2vh;"><i class="fa fa-search"></i>&nbsp;Find friends on Dashboard</a></center>
                 </article>
 
@@ -106,6 +142,12 @@
         </div>
 
         <?php include 'assets/parts/logout.php'; ?>
+        <script type="text/javascript">
+
+            document.getElementById("fileToUpload").onchange = function() {
+            document.getElementById("submit").click();
+            };
+        </script>
     </body>
 
     </html>

@@ -18,7 +18,7 @@
 }
 
 #panel_2 {
-    width: 44.5vw;
+    width: 43.5vw;
     display: inline-block;
     background: none;
     overflow-y: scroll;
@@ -152,7 +152,7 @@
 }
 
 .checked {
-    background-color: #70b828;
+    background-color: green;
     color: white;
 }
 
