@@ -1,8 +1,10 @@
 <?php
-
-    $username = $_SESSION["username"];
     include 'assets/parts/connect.php';
-
+    if(isset($_SESSION['username'])) $username=$_SESSION['username'];
+    else $username='';
+    $uri=$_SERVER['PHP_SELF']."?file=home.php";
+    $ip=$_SERVER['REMOTE_ADDR'];
+    mysqli_query($con, "insert into hits_count values('$uri', '$ip', '$username', DEFAULT)");
     $select_query = "select fname, lname from users where username='$username';";
     $result = mysqli_query($con, $select_query);
     $row = mysqli_fetch_array($result);
@@ -33,6 +35,28 @@
                         } else {
                             x.className = 'button event_status event_detail';
                             x.innerHTML = '<i class=\"fa fa-circle-o\"></i>&nbsp;&nbsp;Participate';
+                        }
+                    }
+                });
+            }
+
+            function toggle_follow(user2, view)
+            {
+                $.ajax({
+                    url: \"assets/functions/follow_toggle.php\",
+                    data: {
+                        user_1: '$username',
+                        user_2: user2
+                    },
+                    type: 'post',
+                    success: function(output) {
+                        if(output == 'followed') {
+                            view.className = 'button follow-status follow-status-checked';
+                            view.innerHTML = 'Following';
+                        }
+                        else {
+                            view.className = 'button follow-status';
+                            view.innerHTML = 'Follow';
                         }
                     }
                 });

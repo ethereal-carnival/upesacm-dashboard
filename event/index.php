@@ -1,5 +1,11 @@
 <?php
     session_start();
+    include '../assets/parts/connect.php';
+    if(isset($_SESSION['username'])) $username=$_SESSION['username'];
+    else $username='';
+    $uri=$_SERVER['PHP_SELF'];
+    $ip=$_SERVER['REMOTE_ADDR'];
+    mysqli_query($con, "insert into hits_count values('$uri', '$ip', '$username', DEFAULT)");
     if(!isset($_SESSION["username"])) {
         echo "<html><head><script type='text/javascript'>window.alert('You need to be logged-in to access this page'); window.location.href='/';</script></head></html>";
         die();
@@ -91,7 +97,7 @@
         <section style="float: left; margin-top: 9vh">
             <div style="height: 78vh; width: 58vw; background-color: rgba(0,0,0,0.8); padding: 2vh 1vw; overflow-y: scroll;">
                 <center>
-                    <div id="poster" style="text-align: center; display: inline;"><img src="/assets/images/event_<?php echo $id; ?>.jpg" style="height: 30vh;" /></div>
+                    <div id="poster" style="text-align: center; display: inline;"><img src="/assets/images/event_<?php echo $id; ?>.jpg<?php echo "?v=".Date("Y.m.d.G.i.s");?>" style="height: 30vh;" /></div>
                     <div class="base" style="display: inline-block; text-align: left; overflow-y: scroll;">
                         <div class="in-text" id="name">
                             <?php echo $name; ?>
@@ -109,9 +115,9 @@
                             <?php echo $participants_no; ?>
                         </div>
                         <button id="status" style="padding-left:1vw; padding-right: 1vw; height: 4vh;" onclick="status();" class="
-                        <?php if(mysqli_fetch_array(mysqli_query($con, "select count(*) from user_events where username='$username' and event_id=$id"))[0])
-                            { echo "participating"; $text = "Participating"; }
-                        else { echo "not-participating"; $text = "Participate"; }                                                                                                       ?>
+                        <?php if(mysqli_fetch_array(mysqli_query($con, " select count(*) from user_events where username='$username' and event_id=$id "))[0])
+                            { echo "participating "; $text = "Participating"; }
+                        else { echo "not-participating "; $text = "Participate"; }                                                                                                       ?>
                         "><i class="fa fa<?php if($text=="Participating") echo '-check'; ?>-circle<?php if($text=="Participate") echo '-o'; ?>"></i>&nbsp;&nbsp;<?php echo $text; ?></button>
                     </div>
                 </center>
@@ -141,7 +147,7 @@
                             $friend_name = $row_t[0]." ".$row_t[1];
                             echo "
                             <div class=\"entry\">
-                                <div class=\"pic\"><img src=\"/assets/profile-pictures/$friend_username.jpg\" style=\"float: left; height: 4vh; border-radius: 50px;\"></div>
+                                <div class=\"pic\"><img src=\"/assets/profile-pictures/$friend_username.jpg?v=".Date("Y.m.d.G.i.s")."\" style=\"float: left; height: 4vh; border-radius: 50px;\"></div>
                                 <div class=\"identity\" style=\"float: left\">
                                     <div class=\"name\">$friend_name</div>
                                     <button class=\"follow following\" onclick=\"follow_status('$friend_username', this);\">Following</button>

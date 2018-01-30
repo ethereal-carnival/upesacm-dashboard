@@ -10,8 +10,8 @@
                     $row_t_4 = mysqli_fetch_array(mysqli_query($con, "select count(*) from user_events where username='$username' and event_id=$event_id[0]"));
                     echo "
                         <article class=\"post\">
-                            <div class=\"post_pic\" style=\"display: inline; float: left; margin-top: 1vh;\"><img src=\"/assets/profile-pictures/$user_2[0].jpg\" style=\"height: 4vh; width: 4vh; display: inline; border-radius: 100px;\" /></div>
-                            <button class=\"button follow-status follow-status-checked\">Following</button>
+                            <div class=\"post_pic\" style=\"display: inline; float: left; margin-top: 1vh;\"><img src=\"/assets/profile-pictures/$user_2[0].jpg?v=".Date("Y.m.d.G.i.s")."\" style=\"height: 4vh; width: 4vh; display: inline; border-radius: 100px;\" /></div>
+                            <button class=\"button follow-status follow-status-checked\" onclick=\"toggle_follow('$user_2[0]',this);\">Following</button>
                             <div class=\"post_name\">$account_name[0] $account_name[1]</div>
                             <div class=\"post_username\">$user_2[0]</div>
                             <div class=\"post_caption\"></div>

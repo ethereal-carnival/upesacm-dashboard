@@ -1,5 +1,11 @@
 <?php
     session_start();
+    include '../assets/parts/connect.php';
+    if(isset($_SESSION['username'])) $username=$_SESSION['username'];
+    else $username='';
+    $uri=$_SERVER['PHP_SELF'];
+    $ip=$_SERVER['REMOTE_ADDR'];
+    mysqli_query($con, "insert into hits_count values('$uri', '$ip', '$username', DEFAULT)");
     if(isset($_SESSION["username"])) {
         echo "<html><head><script type='text/javascript'>window.alert('You are already registered. Please log out to register another user'); window.location.href='/';</script></head></html>";
         die();
