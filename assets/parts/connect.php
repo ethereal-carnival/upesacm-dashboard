@@ -1,7 +1,13 @@
 <?php
+    /*
     $con = mysqli_connect('localhost','root','');
     mysqli_query($con, "CREATE DATABASE IF NOT EXISTS dashboard;");
     mysqli_select_db($con,'dashboard');
+    */
+    $con = mysqli_connect('mysql.hostinger.in','u286673737_dash','dashboard');
+    mysqli_query($con, "CREATE DATABASE IF NOT EXISTS u286673737_dash;");
+    mysqli_select_db($con,'u286673737_dash');
+
 
     mysqli_query($con, "CREATE TABLE IF NOT EXISTS `users` (
       `username` text NOT NULL,
