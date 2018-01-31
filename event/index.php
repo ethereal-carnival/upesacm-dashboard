@@ -97,7 +97,7 @@
         <section style="float: left; margin-top: 9vh">
             <div style="height: 78vh; width: 58vw; background-color: rgba(0,0,0,0.8); padding: 2vh 1vw; overflow-y: scroll;">
                 <center>
-                    <div id="poster" style="text-align: center; display: inline;"><img src="/assets/images/event_<?php echo $id; ?>.jpg<?php echo "?v=".Date("Y.m.d.G.i.s");?>" style="height: 30vh;" /></div>
+                    <div id="poster" style="text-align: center; display: inline;"><a target="_blank" href="/assets/images/event_<?php echo $id; ?>.jpg<?php echo "?v=".Date("Y.m.d.G.i.s");?>" ><img src="/assets/images/event_<?php echo $id; ?>.jpg<?php echo "?v=".Date("Y.m.d.G.i.s");?>" style="height: 30vh;" /></a></div>
                     <div class="base" style="display: inline-block; text-align: left; overflow-y: scroll;">
                         <div class="in-text" id="name">
                             <?php echo $name; ?>
@@ -111,8 +111,8 @@
                         <div class="in-text" id="venue">Venue:
                             <?php echo $venue; ?>
                         </div>
-                        <div class="in-text" id="participants">Particpants:
-                            <?php echo $participants_no; ?>
+                        <div class="in-text" id="participants">Particpants: **feature coming-soon**
+                            <?php //echo $participants_no; ?>
                         </div>
                         <button id="status" style="padding-left:1vw; padding-right: 1vw; height: 4vh;" onclick="status();" class="
                         <?php if(mysqli_fetch_array(mysqli_query($con, " select count(*) from user_events where username='$username' and event_id=$id "))[0])
@@ -124,10 +124,6 @@
                 <div class="in-text" id="description">
                     <h1>Description:</h1><br />
                     <?php echo $description; ?>
-                </div>
-                <br />
-                <div class="in-text" id="description">
-                    <h1>Rules:</h1><br />Lick sellotape mew damn that dog but eat all the power cords. Drool thinking longingly about tuna brine and kitten is playing with dead mouse for stare at the wall, play with food and get confused by dust prance along on top of the garden fence, annoy the neighbor's dog and make it bark meowzer. If it smells like fish eat as much as you wish licks paws and howl on top of tall thing small kitty warm kitty little balls of fur or cat mojo yet spill litter box, scratch at owner, destroy all furniture, especially couch and sniff other cat's butt and hang jaw half open thereafter. Mark territory open the door, let me out, let me out, let me-out, let me-aow, let meaow, meaow!. And sometimes switches in french and say "miaou" just because well why not. Climb a tree, wait for a fireman jump to fireman then scratch his face behind the couch, a nice warm laptop for me to sit on, be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day i shredded your linens for you and with tail in the air lies down . Meow meow be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day, sit in box.
                 </div>
             </div>
         </section>

@@ -13,7 +13,7 @@
                             <div class=\"post_pic\" style=\"display: inline; float: left; margin-top: 1vh;\"><img src=\"/assets/profile-pictures/$user_2[0].jpg?v=".Date("Y.m.d.G.i.s")."\" style=\"height: 4vh; width: 4vh; display: inline; border-radius: 100px;\" /></div>
                             <button class=\"button follow-status follow-status-checked\" onclick=\"toggle_follow('$user_2[0]',this);\">Following</button>
                             <div class=\"post_name\">$account_name[0] $account_name[1]</div>
-                            <div class=\"post_username\">$user_2[0]</div>
+                            <div class=\"post_username\">@$user_2[0]</div>
                             <div class=\"post_caption\"></div>
                             <div class=\"post_event\">
                                 <div class=\"poster\">
@@ -24,7 +24,9 @@
                                     <div class=\"event_date event_detail\">Date: <strong>$event_info[2]</strong></div>
                                     <div class=\"event_venue event_detail\">Venue: <strong>$event_info[4]</strong></div>
                                     <div class=\"event_venue event_detail\">Timings: <strong>$event_info[3]</strong></div>
-                                    <div class=\"event_participants event_detail\">Particpants: <strong>$event_info[5]</strong></div>
+                                    <div class=\"event_participants event_detail\">Participants:<strong>&nbsp; **feature coming-soon**";
+                                    //$event_info[5]
+                                    echo "</strong></div>
                                     <button class=\"button event_status";
                     if($row_t_4[0] !=0) {
                         echo " checked";

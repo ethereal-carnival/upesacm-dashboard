@@ -19,12 +19,14 @@ body {
 .event-list {
     background-color: #fff;
     background-color: #f0f7e9;
+    background-color: rgba(0,0,0,0.3);
     border-radius: 15px;
-    margin: 2vh 0.5vw 0 1vw;
+    margin: 1vh 0.5vw 0 1vw;
     height: 8vh;
     font-size: 2.75vh;
     line-height: 2.5;
     text-align: center;
+    color: #fff;
 }
 
 .event-list > a {

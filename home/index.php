@@ -62,6 +62,27 @@
                 });
             }
 
+            function follow_status(user_2, view) {
+                $.ajax({
+                    url: \"../assets/functions/follow_toggle.php\",
+                    data: {
+                        user_1: '$username',
+                        user_2: user_2
+                    },
+                    type: 'post',
+                    success: function(output) {
+                        if(output == 'followed') {
+                            view.className = 'follow following';
+                            view.innerHTML = 'Following';
+                        }
+                        else {
+                            view.className = 'follow';
+                            view.innerHTML = 'Follow';
+                        }
+                    }
+                });
+            }
+
         </script>
         "; ?>
 
@@ -96,7 +117,7 @@
                     <div class="upcoming"></div>
 
                     <?php
-                        $result = mysqli_query($con, "select event_id from user_events where username='$username';");
+                        $result = mysqli_query($con, "select event_id from user_events where username='$username' order by timestamp;");
                         $total = mysqli_fetch_array(mysqli_query($con, "select count(*) from events"))[0];
                         $count = 0;
 
@@ -125,16 +146,7 @@
             <?php include "panel_2.php"; ?>
 
             <section class="panel" id="panel_3">
-                <article id="upcoming-events">
-                    <div class="heading">My Upcoming Events</div>
-                    <ul class="upcoming">
-                        <li><a href="/event/?name=International Coding League">International Coding League: 1st February</a></li>
-                        <li>Glitch: 1st February</li>
-                        <li>Frame of Reference: 1st February</li>
-                        <li>Engage: 1st February</li>
-                        <li>Echo: 1st February</li>
-                    </ul>
-                </article>
+
                 <article id="suggestions">
                     <div class="heading">Discover More</div>
                     <div style="margin-top: 4vh;"></div>
@@ -161,6 +173,32 @@
                             $ind++;
                         }
                     ?>
+                </article>
+                <article id="friend-suggestions">
+                    <div class="heading">People on Dashboard</div>
+                    <div style="height: 4vh"></div>
+                    <?php
+                    $result = mysqli_query($con, "select username, fname, lname from users where username!='$username' order by timestamp");
+                    while($row=mysqli_fetch_array($result)) {
+                            $friend_name = $row[1]." ".$row[2];
+                            echo "
+                            <div class=\"entry\">
+                                <div class=\"pic\"><img src=\"/assets/profile-pictures/$row[0].jpg?v=".Date("Y.m.d.G.i.s")."\" style=\"float: left; height: 4vh; border-radius: 50px;\"></div>
+                                <div class=\"identity\" style=\"float: left\">
+                                    <div class=\"list-name\">$friend_name</div>
+                                    <button class=\"follow ";
+                            if(mysqli_fetch_array(mysqli_query($con, "select count(*) from friends where user_1='$username' and user_2='$row[0]'"))[0]!=0) {
+                                echo "following";
+                                $text = 'Following';
+                            }
+                            else $text = "Follow";
+                            echo "\" onclick=\"follow_status('$row[0]', this);\">$text</button>
+                                </div>
+                            </div>
+                            ";
+                    }
+
+                ?>
                 </article>
             </section>
         </div>
